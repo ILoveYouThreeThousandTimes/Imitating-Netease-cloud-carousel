@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.swiper {
+    width: 1200px;
+    height: 380px;
+    margin: 50px auto;
+    background-color: pink;
+    position: relative;
+}
+
+.swiper .pic {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.swiper .pic li {
+    transition: all 0.8s;
+    width: 660px;
+    height: 300px;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    /* transform: translate(-50%, -50%); */
+    margin-left: -350px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.5);
+}
+
+.swiper .pic li img {
+    width: 100%;
+    height: 100%;
+}
+
+.now {
+    z-index: 9;
+    transform: scale(1.2);
+}
+
+.next {
+    z-index: 6;
+    transform: translateX(300px);
+}
+
+.prev {
+    z-index: 6;
+    transform: translateX(-260px);
+}
+
+._bg {
+    background-color: red !important;
+}
+
+.swiper .cricle {
+    height: 16px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.swiper .cricle li {
+    float: left;
+    width: 14px;
+    height: 14px;
+    background-color: skyblue;
+    margin-right: 6px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.swiper .btns {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 38px;
+    z-index: 9;
+}
+
+.swiper .btns .leftbtn,
+.swiper .btns .rightbtn {
+    height: 100%;
+    width: 38px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+.swiper .btns .leftbtn::after,
+.swiper .btns .rightbtn::after {
+    content: "";
+    display: block;
+    width: 18px;
+    height: 18px;
+    border-left: 3px solid #ffffff;
+    border-top: 3px solid #ffffff;
+
+}
+
+.swiper .btns .leftbtn::after {
+    transform: translate(12px, 8px) rotate(-45deg);
+}
+
+.swiper .btns .rightbtn::after {
+    transform: translate(4px, 8px) rotate(135deg);
+}

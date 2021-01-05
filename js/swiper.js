@@ -9,9 +9,12 @@ window.addEventListener("load", function () {
 
   //清除图片类名
   function clearPicName() {
-    pic.forEach(function (ele) {
-      ele.className = "";
-    });
+    // pic.forEach(function (ele) {
+    //   ele.className = "";
+    // });
+    for (var i = 0; i < pic.length; i++) {
+      pic[i].className = "";
+    }
   }
   function leave() {
     btns.style.display = "none";
@@ -20,12 +23,12 @@ window.addEventListener("load", function () {
     }, 2000);
   }
   //点击图片轮播
-  function next() {
-    rightbtn.click();
-  }
-  function prev() {
-    leftbtn.click();
-  }
+  // function next() {
+  //   rightbtn.click();
+  // }
+  // function prev() {
+  //   leftbtn.click();
+  // }
 
   var timer = setInterval(function () {
     rightbtn.click();
@@ -37,22 +40,34 @@ window.addEventListener("load", function () {
     swiper.addEventListener("mouseleave", leave);
   });
   //动态生成小圆点
-  var lis = "";
-  pic.forEach(function () {
-    lis += `<li></li>`;
-  });
-  cricle.innerHTML = lis;
+  var lili = "";
+  // pic.forEach(function () {
+  //   lis += "<li></li>";
+  // });
+  for (var j = 0; j < pic.length; j++) {
+    lili += "<li></li>";
+  }
+  cricle.innerHTML = lili;
   //获取动态生成的小圆点
   var lis = cricle.querySelectorAll("li");
   lis[0].className = "_bg";
   //清楚小圆点类名
   function clearCricleName() {
-    lis.forEach(function (ele) {
-      ele.className = "";
-    });
+    // lis.forEach(function (ele) {
+    //   ele.className = "";
+    // });
+    for (var i = 0; i < lis.length; i++) {
+      lis[i].className = "";
+    }
   }
   var pic_index = 0;
-  lis.forEach(function (ele, i) {
+  //满足ie的特殊癖好
+  var lisArr = [];
+  for (var i = 0; i < lis.length; i++) {
+    lisArr.push(lis[i]);
+  }
+
+  lisArr.forEach(function (ele, i) {
     ele.addEventListener("mouseenter", function () {
       clearCricleName();
       ele.className = "_bg";
@@ -61,7 +76,7 @@ window.addEventListener("load", function () {
       clearPicName();
 
       //上一张
-      i = i == 0 ? lis.length : i;
+      i = i == 0 ? lisArr.length : i;
       pic[i - 1].className = "prev";
       //恢复索引
       i = index;
@@ -70,7 +85,7 @@ window.addEventListener("load", function () {
       pic[i].className = "now";
 
       //下一张
-      i = i == lis.length - 1 ? -1 : i;
+      i = i == lisArr.length - 1 ? -1 : i;
       pic[i + 1].className = "next";
       //恢复索引
       i = index;
@@ -111,8 +126,6 @@ window.addEventListener("load", function () {
     //上一张
     pic_index = pic_index == 0 ? pic.length : pic_index;
     pic[pic_index - 1].className = "prev";
-    // pic[pic_index - 1].removeEventListener("click", prev);
-    pic[pic_index - 1].addEventListener("click", prev);
     pic_index = index;
     //当前
     pic[pic_index].className = "now";
@@ -122,7 +135,5 @@ window.addEventListener("load", function () {
     //下一张
     pic_index = pic_index == pic.length - 1 ? -1 : pic_index;
     pic[pic_index + 1].className = "next";
-    // pic[pic_index + 1].removeEventListener("click".next);
-    pic[pic_index + 1].addEventListener("click", next);
   });
 });

@@ -6,6 +6,8 @@ window.addEventListener("load", function () {
   var cricle = swiper.querySelector(".cricle");
   var leftbtn = swiper.querySelector(".leftbtn");
   var rightbtn = swiper.querySelector(".rightbtn");
+  var leftBox = swiper.querySelector(".leftBox");
+  var rightBox = swiper.querySelector(".rightBox");
 
   //清除图片类名
   function clearPicName() {
@@ -22,13 +24,6 @@ window.addEventListener("load", function () {
       rightbtn.click();
     }, 2000);
   }
-  //点击图片轮播
-  // function next() {
-  //   rightbtn.click();
-  // }
-  // function prev() {
-  //   leftbtn.click();
-  // }
 
   var timer = setInterval(function () {
     rightbtn.click();
@@ -135,5 +130,12 @@ window.addEventListener("load", function () {
     //下一张
     pic_index = pic_index == pic.length - 1 ? -1 : pic_index;
     pic[pic_index + 1].className = "next";
+  });
+  //点击图片轮播
+  leftBox.addEventListener("click", function () {
+    leftbtn.click();
+  });
+  rightBox.addEventListener("click", function () {
+    rightbtn.click();
   });
 });

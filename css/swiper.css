@@ -158,3 +158,21 @@ img {
     -ms-transform: translate(4px, 8px) rotate(135deg);
     transform: translate(4px, 8px) rotate(135deg);
 }
+
+.leftBox,
+.rightBox {
+    height: 300px;
+    position: absolute;
+    top: 30px;
+    z-index: 99;
+}
+
+.leftBox {
+    width: 182px;
+    left: 0;
+}
+
+.rightBox {
+    width: 222px;
+    right: 0;
+}
